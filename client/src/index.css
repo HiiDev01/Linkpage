@@ -1,12 +1,47 @@
+
 :root {
-  --bg: #f3f5f8; --surface: #ffffff; --ink: #12151c; --muted: #5d6675; --line: #dfe3ea;
-  --accent: #3347ff; --accent-ink: #ffffff; --ok: #14803c; --ok-bg: #e4f6ea; --bad: #b42318; --bad-bg: #fde8e6;
-  --radius: 14px; --font: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bg: #FFFFFF;
+  --surface: #FFFFFF;
+  --ink: #14181F;
+  --muted: #647080;
+  --line: #E1E7EF;
+
+  --accent: #1769FF;
+  --accent-ink: #FFFFFF;
+  --teal: #00AFA0;
+  --amber: #F5A623;
+
+  --ok: #008F78;
+  --ok-bg: #E5F7F3;
+  --bad: #C93636;
+  --bad-bg: #FDECEC;
+
+  --click: #F5A623;
+  --font: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', sans-serif;
   color-scheme: light;
 }
+
+/* DARK MODE - MIDNIGHT OCEAN */
+
 :root[data-theme='dark'] {
-  --bg: #0d1016; --surface: #161a23; --ink: #eef1f6; --muted: #9aa4b5; --line: #262c39;
-  --accent: #7c8bff; --accent-ink: #0d1016; --ok: #5fd68a; --ok-bg: #112a1b; --bad: #ff8a80; --bad-bg: #321613;
+  --bg: #101820;
+  --surface: #18232E;
+  --ink: #F4F7FA;
+  --muted: #A6B4C2;
+  --line: #2B3B49;
+
+  --accent: #1769FF;
+  --accent-ink: #FFFFFF;
+  --teal: #00C4B4;
+  --amber: #FFC04D;
+
+  --ok: #38C9A5;
+  --ok-bg: #15372F;
+  --bad: #FF7777;
+  --bad-bg: #3A2023;
+
+  --click: #FFC04D;
+
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -220,3 +255,64 @@ p { margin: 0 0 1rem; } a { color: var(--accent); text-underline-offset: 3px; }
 .recent { list-style: none; padding: 0; margin: .5rem 0 0; }
 .recent li { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-top: 1px solid var(--line); font-size: .95rem; }
 .recent li:first-child { border-top: 0; } .recent time { white-space: nowrap; }
+
+
+/*/////////////////////////////////////////*/
+.btn:not(.danger),
+.nav-item.active,
+.tabs button.on,
+.seg button.on {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #FFFFFF;
+}
+
+a,
+.spinner,
+.preset.on,
+.steps li::marker,
+.feature svg {
+  color: var(--accent);
+}
+
+.switch input:checked + span,
+.bar-fill,
+.chart .bar {
+  background-color: var(--teal);
+}
+
+.chart .bar {
+  fill: var(--teal);
+}
+
+.chart .line,
+.chart .dot {
+  stroke: var(--amber);
+  fill: var(--amber);
+}
+
+/* CLEAN THEME PREVIEW */
+
+.preset.on {
+  border-color: var(--accent);
+}
+
+.seg button.on,
+.tabs button.on {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+
+/* SMOOTH TRANSITIONS */
+
+body,
+.panel,
+.topbar,
+.sidebar,
+.auth-card,
+.modal,
+.item {
+  transition: background-color .2s ease,
+              color .2s ease,
+              border-color .2s ease;
+}
