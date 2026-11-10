@@ -10,16 +10,16 @@
 ## 2. Run the API
 ```
 cd server
-cp .env.example .env    # fill in the three Supabase values
+cp .env     # fill in the three Supabase values
 npm install
-npm run dev             # http://localhost:4000  (Node 20.6+)
+npm run dev             # http://localhost:${PORT} you can set your own port in the server folder env 
 ```
 
 ## 3. Run the client
 ```
 cd client
 npm install
-npm run dev             # http://localhost:5173 (proxies /api to :4000)
+npm run dev             # http://localhost:5173 (proxies /api to your backend url)
 ```
 
 ## Try it
