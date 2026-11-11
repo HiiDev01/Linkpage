@@ -25,14 +25,14 @@ export default function DashboardLayout() {
     <div className="shell">
       <header className="topbar">
         <button className="icon-btn" onClick={() => setOpen(true)} aria-label="Open menu"><FiMenu /></button>
-        <span className="brand">LinkPage</span>
+        <span className="brand">Tapaly</span>
         <ThemeToggle />
       </header>
 
       {open && <div className="scrim" onClick={() => setOpen(false)} />}
       <aside className={`sidebar ${open ? 'open' : ''}`}>
         <div className="sidebar-head">
-          <span className="brand">LinkPage</span>
+          <span className="brand">Tapaly</span>
           <button className="icon-btn only-mobile" onClick={() => setOpen(false)} aria-label="Close menu"><FiX /></button>
         </div>
         <nav>

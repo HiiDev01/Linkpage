@@ -57,7 +57,7 @@ export default function Landing() {
   return (
     <div className="landing">
       <header className="nav">
-        <span className="brand">LinkPage</span>
+        <span className="brand">Tapaly</span>
         <nav className="row">
           <a className="nav-link" href="#how">How it works</a>
           <a className="nav-link" href="#faq">FAQ</a>
@@ -133,7 +133,7 @@ export default function Landing() {
       </section>
 
       <footer className="site-foot">
-        <span className="brand">LinkPage</span>
+        <span className="brand">Tapaly</span>
         <span className="muted">© {new Date().getFullYear()} LinkPage</span>
         <span className="row"><Link to="/login">Log in</Link><Link to="/register">Sign up</Link></span>
       </footer>

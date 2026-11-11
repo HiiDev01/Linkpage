@@ -15,7 +15,8 @@ import analyticsRoutes from './routes/analytics.js';
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:5173';
+const CLIENT_URL = process.env.CLIENT_URL ||
+  'http://localhost:5173,http://localhost:5174';
 
 // Normalize allowed frontend URLs
 const allowedOrigins = CLIENT_URL
@@ -28,28 +29,21 @@ app.set('trust proxy', 1);
 app.use(helmet());
 
 // CORS configuration
-const corsOptions = {
+// CORS configuration
+app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests without an Origin header (health checks, etc.)
-    if (!origin) {
+    if (!origin || allowedOrigins.includes(origin.replace(/\/+$/, ''))) {
       return callback(null, true);
     }
 
-    const normalizedOrigin = origin.replace(/\/+$/, '');
-
-    if (allowedOrigins.includes(normalizedOrigin)) {
-      return callback(null, true);
-    }
-
-    return callback(new Error('Origin not allowed by CORS'));
+    console.log('Blocked CORS origin:', origin);
+    return callback(null, false);
   },
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
   optionsSuccessStatus: 204,
-};
-
-app.use(cors(corsOptions));
+}));
 
 app.use(express.json({ limit: '100kb' }));
 
